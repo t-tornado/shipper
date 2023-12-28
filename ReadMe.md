@@ -1,21 +1,27 @@
 # Getting Started with Eventli
 
-This project is a federated micro-frontend application with 5 react applications using Webpack 5's Module Federation. Its primary business is event tickets management.
+This project is a federated micro-frontend application with 4 react applications utilizing Webpack 5's Module Federation. Its primary business is event ticketting.
+
+## Installing Deps
+
+Install project dependencies by running the command below at the root of the project:
+
+```
+yarn install
+```
 
 ## Running Applications
 
-The applications must be run in the order below:
-
-1. shell
-2. profile
-3. explore-event
-4. events-app
-5. auth
-
-Run application using:
+1. Run the command below at the root of the project to start all applications
 
 ```
 yarn start
 ```
 
-Or Run the start script from the root of the project directory.
+PS: Ensure all applications run without errors
+
+2. Open the running application at
+
+```
+localhost:3005
+```
