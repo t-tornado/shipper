@@ -18,7 +18,6 @@ function set(key: string, payload: any) {
   } catch (error) {
     toSet = payload;
   }
-  console.log(toSet, payload);
   ref.setItem(key, toSet);
 }
 

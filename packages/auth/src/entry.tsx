@@ -8,7 +8,6 @@ interface MountConfig {
   initialPath?: string;
   name?: string;
   authNavigationListener?: Function;
-  provider: any;
 }
 
 export const mount = (el: HTMLElement, config?: MountConfig) => {

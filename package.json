@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "start": "yarn --cwd packages/shell start & yarn --cwd packages/profile start & yarn --cwd packages/events-app start & yarn --cwd packages/explore-event start & yarn --cwd packages/auth start"
+  }
+}

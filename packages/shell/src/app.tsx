@@ -4,7 +4,6 @@ import { Header } from "./components/header";
 import { Navigate, Outlet, Route, Routes, useNavigate } from "react-router-dom";
 import { ProtectedRoutingWrapper } from "./components/hoc/routing/protected.routes";
 import { useAuthState } from "contexts/AuthStore";
-import { getPersistedAuth } from "./application/usecases/persistAuth";
 import { useSubscribeToNavigationEvents } from "./hooks/mfe-events/useSubscribeToNavigation";
 import { usePublishNavigationEvents } from "./hooks/mfe-events/usePublishNavigationEvent";
 import { useAuthSubscriber } from "./hooks/mfe-events/auth/useAuthSubscriber";
@@ -22,12 +21,12 @@ export const App = () => {
   useSubscribeToNavigationEvents();
   useAuthSubscriber();
 
-  useEffect(() => {
-    const persistedAuth = getPersistedAuth();
-    if (persistedAuth) {
-      setAuthState({ loggedIn: true, details: persistedAuth });
-    }
-  }, []);
+  // useEffect(() => {
+  //   const persistedAuth = getPersistedAuth();
+  //   if (persistedAuth) {
+  //     setAuthState({ loggedIn: true, details: persistedAuth });
+  //   }
+  // }, []);
 
   useEffect(() => {
     if (location.pathname === "/") {
@@ -46,10 +45,10 @@ export const App = () => {
         }
       >
         <Route
-          path="/auth/*"
+          path='/auth/*'
           element={
             authState.loggedIn ? (
-              <Navigate to="/events" />
+              <Navigate to='/events' />
             ) : (
               <Suspense fallback={<h1>loading Auth Page</h1>}>
                 <AuthPage />
@@ -58,7 +57,7 @@ export const App = () => {
           }
         />
         <Route
-          path="/events/*"
+          path='/events/*'
           element={
             <Suspense fallback={<h1>loading Events Page</h1>}>
               <ProtectedRoutingWrapper>
@@ -68,7 +67,7 @@ export const App = () => {
           }
         />
         <Route
-          path="/profile/:uid"
+          path='/profile/:uid'
           element={
             <Suspense fallback={<h1>loading user profile Page</h1>}>
               <ProtectedRoutingWrapper>

@@ -17,9 +17,6 @@ const dev = {
       exposes: {
         "./AuthPage": "./src/entry",
       },
-      remotes: {
-        contexts: "shell_app@http://localhost:3005/remoteEntry.js",
-      },
       shared: {
         ...dependencies,
         react: {
