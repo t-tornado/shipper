@@ -23,9 +23,6 @@ const dev = {
         profile: "eventli_profile_app@http://localhost:3002/remoteEntry.js",
         contexts: "shell_app@http://localhost:3005/remoteEntry.js",
       },
-      exposes: {
-        "./AuthStore": "./src/contexts/index.tsx",
-      },
       shared: {
         ...dependencies,
         react: {

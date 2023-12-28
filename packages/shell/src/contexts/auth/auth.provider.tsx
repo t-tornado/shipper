@@ -1,14 +1,31 @@
-import React, { useState } from "react";
-import { AuthContext, defaultAuthState } from "./auth.context";
+import React, {
+  Dispatch,
+  SetStateAction,
+  createContext,
+  useState,
+} from "react";
+
+export type DefaultAuthStateType = {
+  loggedIn: boolean;
+  details: any;
+};
+
+export const defaultAuthState = {
+  loggedIn: false,
+  details: null,
+};
+
+export const AuthContext = createContext<
+  [
+    authState: DefaultAuthStateType,
+    setAuthState: Dispatch<SetStateAction<DefaultAuthStateType>>
+  ]
+>([defaultAuthState, () => null]);
 
 export const AuthProvider = ({ children }: any) => {
-  const [auth, setAuth] = useState({ ...defaultAuthState, next: 233 });
+  const authState = useState(defaultAuthState);
 
   return (
-    <AuthContext.Provider
-      value={{ authState: auth, setAuthState: setAuth } as any}
-    >
-      {children}
-    </AuthContext.Provider>
+    <AuthContext.Provider value={authState}>{children}</AuthContext.Provider>
   );
 };

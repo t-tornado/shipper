@@ -1,10 +1,10 @@
-import { useAuthState } from "contexts/AuthStore";
 import { persistAuthAfterLogin } from "../../../application/usecases/persistAuth";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import { useAuthState } from "../../../contexts/auth/selectors";
 
 export const useAuthSubscriber = () => {
-  const { setAuthState } = useAuthState();
+  const setAuthState = useAuthState()[1];
   const nav = useNavigate();
 
   const handleEventStream = (e: MessageEvent<any>) => {
